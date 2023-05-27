@@ -1,0 +1,94 @@
+body {
+  background-color: whitesmoke;
+  height: 100%;
+}
+
+a {
+  text-decoration: none;
+}
+
+.sideMenu {
+  border-radius: 0 15px 15px 0;
+  width: 230px;
+  height: auto;
+  background-color: #262339;
+  border-right: 3px solid #d1d1d1;
+  display: flex;
+  flex-direction: column;
+  padding: 40px 0;
+  box-shadow: 5px 0 5px hsla(240, 40%, 15%, 0.6);
+  position: fixed;
+  top: 20%;
+  bottom: 20%;
+  transform: translateX(-100%);
+  transition: 0.5s;
+  z-index: 2;
+}
+.sideMenu label {
+  position: absolute;
+  width: 20px;
+  height: 80px;
+  background-color: #d1d1d1;
+  color: #676866;
+  right: -20px;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  line-height: 80px;
+  text-align: center;
+  border-radius: 0 5px 5px 0;
+  box-shadow: 5px 0 5px hsla(240, 40%, 15%, 0.6);
+}
+
+#sideMenu--active:checked + .sideMenu {
+  transform: translateX(0);
+}
+#sideMenu--active:checked + .sideMenu label .fas {
+  transform: scaleX(-1);
+}
+
+#sideMenu--active {
+  display: none;
+}
+
+nav a {
+  display: block;
+  color: #fff;
+  padding: 20px 10px;
+  position: relative;
+  font-size: 25px;
+  text-decoration: none;
+}
+nav a .fas {
+  width: 25px;
+  margin-right: 1em;
+  transform: scale(0);
+  transition: 0.3s;
+}
+nav a:hover {
+  color: indianred !important;
+}
+nav a.active .fas {
+  margin-right: 0.5em;
+  transform: scale(1);
+  color: indianred !important;
+}
+nav a.active {
+  color: indianred !important;
+}
+nav a:hover .fas {
+  margin-right: 0.5em;
+  transform: scale(1);
+}
+nav a + a::before {
+  content: "";
+  position: absolute;
+  border-top: 1px dashed #ffffff;
+  left: 10px;
+  right: 10px;
+  top: 0px;
+}
+
+.now {
+  color: red;
+}/*# sourceMappingURL=all.css.map */

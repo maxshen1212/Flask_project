@@ -1,0 +1,279 @@
+{% extends 'side_bar.html' %}
+
+{% block style %}
+<link rel="stylesheet" href="../static/css/index.css" />
+{% endblock %}
+
+{% block content %}
+<!--Toasts-->
+<div class="toast-container position-fixed bottom-0 end-0 p-3">
+  <div class="toast show" role="status" aria-live="polite" aria-atomic="true">
+    <div class="toast-header text-danger">
+      <i class="bi bi-bell"></i
+      ><strong class="me-auto">Arrangement 優惠訊息</strong>
+      <button
+        type="button"
+        class="btn-close"
+        data-bs-dismiss="toast"
+        aria-label="Close"
+      ></button>
+    </div>
+    <div class="toast-body">今天有許多的優惠方案喔</div>
+  </div>
+  <div class="toast show" role="status" aria-live="polite" aria-atomic="true">
+    <div class="toast-header text-bg-danger">
+      <i class="bi bi-bell"></i
+      ><strong class="me-auto">Arrangement 優惠訊息</strong>
+      <button
+        type="button"
+        class="btn-close"
+        data-bs-dismiss="toast"
+        aria-label="Close"
+      ></button>
+    </div>
+    <div class="toast-body">
+      【隱藏版奢華MEAL】的優惠方案今天最後一天喔！請把握機會
+    </div>
+  </div>
+</div>
+<!--Content-->
+<div class="container mt-5 content-container">
+  <div class="row">
+    <div class="col text-center">
+      <h2 class="display-6 text-danger">這是首頁</h2>
+      <p class="fs-4">我們提供免現場排隊訂位，讓使用者體驗更方便的預訂功能</p>
+    </div>
+    <div
+      id="myCarousel"
+      class="carousel slide carousel-dark"
+      data-bs-ride="carousel"
+    >
+      <!--carousel items-->
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <div class="row row-cols-1 row-cols-md-3">
+            <div class="col">
+              <div class="card text-center">
+                <div class="card-header">精選</div>
+                <img
+                  src="../static/image/燒肉.jpg"
+                  class="figure-img"
+                />
+                <div class="card-body">
+                  <h4 class="card-title">燒肉體驗</h4>
+                  <p class="item-price"><s>$400.00</s> <b>$369.00</b></p>
+                  <button type="button" class="btn btn-danger">
+                    Add to Cart
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card text-center">
+                <div class="card-header">精選行程</div>
+                <img
+                  src="../static/image/火鍋.jpg"
+                  class="figure-img"
+                />
+                <div class="card-body">
+                  <h4 class="card-title">火鍋體驗</h4>
+                  <p class="item-price"><s>$899.00</s> <b>$799.00</b></p>
+                  <button type="button" class="btn btn-danger">
+                    Add to Cart
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card text-center">
+                <div class="card-header">精選行程</div>
+                <img
+                  src="https://picsum.photos/id/218/450/300"
+                  class="figure-img"
+                />
+                <div class="card-body">
+                  <h4 class="card-title">飯店體驗</h4>
+                  <p class="item-price"><s>$499.00</s> <b>$469.00</b></p>
+                  <button type="button" class="btn btn-danger">
+                    Add to Cart
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <div class="row row-cols-1 row-cols-md-3">
+            <div class="col">
+              <div class="card text-center">
+                <div class="card-header">深度旅遊</div>
+                <img
+                  src="https://picsum.photos/id/419/450/300"
+                  class="img-fluid"
+                />
+                <div class="card-body">
+                  <h4>里斯本之旅</h4>
+                  <p class="item-price"><s>$780.00</s> <b>$669.00</b></p>
+                  <button type="button" class="btn btn-danger">
+                    Add to Cart
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card text-center">
+                <div class="card-header">深度旅遊</div>
+                <img
+                  src="https://picsum.photos/id/420/450/300"
+                  class="img-fluid"
+                />
+                <div class="card-body">
+                  <h4>巴黎浪漫行</h4>
+                  <p class="item-price"><s>$899.00</s> <b>$799.00</b></p>
+                  <button type="button" class="btn btn-danger">
+                    Add to Cart
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card text-center">
+                <div class="card-header">深度旅遊</div>
+                <img
+                  src="https://picsum.photos/id/655/450/300"
+                  class="img-fluid"
+                />
+                <div class="card-body">
+                  <h4>古巴探索之旅</h4>
+                  <p class="item-price"><s>$499.00</s> <b>$469.00</b></p>
+                  <button type="button" class="btn btn-danger">
+                    Add to Cart
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <div class="row row-cols-1 row-cols-md-3">
+            <div class="col">
+              <div class="card text-center">
+                <div class="card-header">體驗之旅</div>
+                <img
+                  src="https://picsum.photos/id/75/450/300"
+                  class="img-fluid"
+                />
+                <div class="card-body">
+                  <h4>葡萄酒體驗</h4>
+                  <p class="item-price"><s>$400.00</s> <b>$369.00</b></p>
+                  <button type="button" class="btn btn-danger">
+                    Add to Cart
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card text-center">
+                <div class="card-header">體驗之旅</div>
+                <img
+                  src="https://picsum.photos/id/817/450/300"
+                  class="img-fluid"
+                />
+                <div class="card-body">
+                  <h4>跑酷體驗</h4>
+                  <p class="item-price"><s>$899.00</s> <b>$799.00</b></p>
+                  <button type="button" class="btn btn-danger">
+                    Add to Cart
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card text-center">
+                <div class="card-header">體驗之旅</div>
+                <img
+                  src="https://picsum.photos/id/835/450/300"
+                  class="img-fluid"
+                />
+                <div class="card-body">
+                  <h4>烘培體驗</h4>
+                  <p class="item-price"><s>$499.00</s> <b>$469.00</b></p>
+                  <button type="button" class="btn btn-danger">
+                    Add to Cart
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Carousel controls -->
+      <button
+        class="carousel-control-prev"
+        type="button"
+        ata-bs-target="#myCarousel"
+        data-bs-slide="prev"
+      >
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button
+        class="carousel-control-next"
+        type="button"
+        data-bs-target="#myCarousel"
+        data-bs-slide="next"
+      >
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+  </div>
+  <div class="row mt-5">
+    <div class="col text-center">
+      <h2 class="display-6 text-success">大家需要注意的規定</h2>
+      <p class="fs-4">下面公告必須特別注意！！！</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm">
+      <div class="alert alert-danger" role="alert">
+        <h4 class="alert-heading">訂位請於10分鐘內到場</h4>
+        <p>
+          訂位須於10非鐘內到場，否則將由候補直接補上，一切權利都將由本公司做解釋。
+        </p>
+        <hr />
+        <p class="mb-0">
+          心動了嗎？<a href="#" class="alert-link">馬上預訂</a>
+        </p>
+      </div>
+    </div>
+    <div class="col-sm">
+      <div class="alert alert-warning" role="alert">
+        <h4 class="alert-heading">背上行囊就出發！</h4>
+        <p>
+          不需急匆匆地趕到現場吃飯，只需提早預訂，並且10分鐘內到達，至現場報導。
+        </p>
+        <hr />
+        <p class="mb-0">
+          心動了嗎？<a href="#" class="alert-link">馬上預訂</a>
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="row mt-2">
+    <div class="col text-center">
+      <div class="alert alert-primary" role="alert">
+        享受美食【台中】4人烤肉party，
+        <a href="#" class="alert-link">屋馬燒肉、茶六燒肉、森森燒肉</a>。
+      </div>
+      <div class="alert alert-info" role="alert">
+        嘉義旅遊，阿里山火車，移動的森林，車埕木香，檜樂森活二日遊。
+      </div>
+      <div class="alert alert-success" role="alert">
+        享受美食【台中】4人火鍋party，
+        <a href="#" class="alert-link">輕井澤、拾七、十二段</a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
