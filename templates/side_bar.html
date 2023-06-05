@@ -29,6 +29,17 @@
       rel="stylesheet"
       href="{{ url_for('static', filename= 'css/all.css') }}"
     />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"
+      integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
     {% block style %} {% endblock %}
     <title>排隊訂位系統</title>
   </head>
@@ -57,9 +68,7 @@
       <!-- label 寫在 nav 下方是為了比較好看到 -->
     </div>
     <!-- 內容 -->
-    {% block content %}
-    
-    {% endblock %}
+    {% block content %} {% endblock %}
     <!-- 頁尾 -->
     <footer
       class="text-center text-lg-start text-white mt-1"
@@ -145,18 +154,6 @@
       </div>
       <!-- Copyright -->
     </footer>
-    <!-- 腳本 -->
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"
-      integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    ></script>
     <script>
       let ip = "127.0.0.1:5251";
       $(document).ready(function () {
