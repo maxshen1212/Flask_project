@@ -6,22 +6,20 @@
 {% endblock %} {% block content%}
 <div class="container overflow-hidden">
   <div
-    class="row justify-content-center align-items-center"
-    style="height: 100vh"
+    class="row justify-content-center align-items-center p-3"
   >
     <div class="col-9">
-      <div class="row g-2">
+      <div class="row">
         <div class="col-lg-8">
           <div class="border boder-1 bg-white rounded p-4">
             <div><h1>弦音吉他社練歌</h1></div>
             <hr />
             <div>
-              <p class="m-0 p-0">
+              <p>
                 排隊指南 練歌時間：AM 00：00 - AM 00：00<br />
                 (30分鐘為一首歌) ＃開放7天內預約排隊 <br />
                 ✅ 練歌時間為一組30分鐘<br />
                 ✅ 限定預約一個禮拜內的練歌<br />
-                ✅ 禁止插隊!!! 敬請見諒<br />
                 ✅ 禁止插隊!!! 敬請見諒<br />
               </p>
             </div>
@@ -31,45 +29,32 @@
           <div class="border boder-1 bg-white rounded p-4">
             <h1>預約排隊</h1>
             <hr />
-            <select class="form-select" aria-label="Default select example">
+            <!-- <select class="form-select" aria-label="Default select example">
               <option selected>練歌人數</option>
               <option value="1">1位</option>
               <option value="2">2位</option>
               <option value="3">3位</option>
               <option value="3">4位</option>
-            </select>
+            </select> -->
             <div class="row my-3">
               <div class="col">
                 <input type="text" class="form-control" id="datepicker" />
                 <div id="datepicker" data-date="12/03/2012"></div>
                 <input type="hidden" id="my_hidden_input" />
               </div>
-              <div class="col">
-                <select class="form-select" aria-label="Default select example">
-                  <option selected>時間</option>
-                  <option value="1">11:00</option>
-                  <option value="2">11:30</option>
-                  <option value="3">12:00</option>
-                  <option value="4">12:30</option>
-                  <option value="5">13:00</option>
-                  <option value="6">13:30</option>
-                  <option value="7">14:00</option>
-                  <option value="8">14:30</option>
-                  <option value="8">15:00</option>
-                  <option value="9">15:30</option>
-                  <option value="10">16:00</option>
-                  <option value="11">16:30</option>
-                  <option value="12">17:00</option>
-                  <option value="12">17:30</option>
-                  <option value="12">18:00</option>
-                  <option value="12">18:30</option>
-                  <option value="12">19:00</option>
-                  <option value="12">19:30</option>
-                  <option value="12">20:00</option>
-                </select>
-              </div>
             </div>
-            <button class="btn btn-primary w-100">查詢</button>
+            <button class="btn btn-primary w-100" id="search_btn">查詢</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="row my-4" id="time_list_bg">
+        <div class="col-12">
+          <div class="border boder-1 bg-white rounded p-4">
+            <h1>預約列表</h1>
+            <!-- 時間列表 -->
+            <div class="row row-cols-2 my-3" id="time_list">
+            </div>
           </div>
         </div>
       </div>
@@ -82,6 +67,7 @@
 <script>
   $(document).ready(function () {
     init_datetime();
+    search_time();
   });
 </script>
 {% endblock %}
