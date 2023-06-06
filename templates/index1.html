@@ -5,7 +5,10 @@
 />
 {% endblock %} {% block content%}
 <div class="container overflow-hidden">
-  <div class="row justify-content-center align-items-center" style="height: 100vh">
+  <div
+    class="row justify-content-center align-items-center"
+    style="height: 100vh"
+  >
     <div class="col-9">
       <div class="row g-2">
         <div class="col-lg-8">
@@ -75,20 +78,10 @@
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+<script src="../static/js/index1.js"></script>
 <script>
-  $(function () {
-    // 初始化時間選擇器
-    $("#datepicker")
-      .datepicker({
-        format: "yyyy/mm/dd",
-        startDate: "-0d",
-        endDate: "+7d",
-      })
-      .datepicker("update", new Date());
-    //監聽時間選擇器
-    $("#datepicker").on("changeDate", function () {
-      console.log($("#datepicker").datepicker("getFormattedDate"));
-    });
+  $(document).ready(function () {
+    init_datetime();
   });
 </script>
 {% endblock %}

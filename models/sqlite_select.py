@@ -7,4 +7,3 @@ DB_NAME = 'mydb.db'
 # 建立對檔案型資料庫 mydb.db 的物件參考
 conn = sqlite3.connect(DB_NAME)
 cursor = conn.cursor()
-"select 2023/06/05 13:00"
