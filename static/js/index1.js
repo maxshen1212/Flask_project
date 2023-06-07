@@ -17,8 +17,10 @@ function search_time() {
     "11:00": "愛在夏天",
     "11:30": "摯友",
     "12:00": null,
+    "12:30": null,
+    "13:00": null,
   };
-  const time_regular = ["11:00", "11:30", "12:00"];
+  const time_regular = ["11:00", "11:30", "12:00","12:30","13:00"];
   var search_btn = document.getElementById("search_btn");
   var time_list = document.getElementById("time_list");
   console.log(avalible_time["11:00"]);
@@ -38,7 +40,7 @@ function search_time() {
       } else {
         template += `
         <div class="col">
-            <a class="btn btn-outline-danger my-1" id="${time_regular[i]}" href="/index5" >${time_regular[i]}</a>
+            <a class="btn btn-outline-danger my-1" id="${time_regular[i]}" href="/line_form/${time_regular[i]}" >${time_regular[i]}</a>
             <p class="d-inline">可預約!!!</p>
         </div>
         `;

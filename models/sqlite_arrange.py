@@ -1,7 +1,7 @@
 import sqlite3
 # 宣告使用 sqlite3 模組
 
-# 排隊
+#   排隊
 def user_arrange(db_name, idno, password):
     try:
         conn = sqlite3.connect(db_name)
