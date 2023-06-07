@@ -1,2 +1,0 @@
-member={}
-print(type(member))
