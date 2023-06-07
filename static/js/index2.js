@@ -2,7 +2,7 @@ function init_datetime() {
   $("#datepicker")
     .datepicker({
       format: "yyyy/mm/dd",
-      startDate: "-0d",
+      startDate: "0d",
       endDate: "+7d",
     })
     .datepicker("update", new Date());
