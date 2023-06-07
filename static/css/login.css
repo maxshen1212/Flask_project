@@ -4,7 +4,7 @@ body {
 }
 
 .form-signin {
-  max-width: 330px;
+  max-width: 370px;
   padding: 15px;
 }
 
@@ -12,3 +12,9 @@ body {
   z-index: 2;
 }
 
+.bg-img {
+  min-height: 100vh;
+  background-image: url("/static/image/4.jpg");
+  background-size:contain;
+  background-position: center center;
+}

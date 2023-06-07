@@ -7,6 +7,16 @@ a {
   text-decoration: none;
 }
 
+.content {
+  position: relative;
+  min-height: 100vh;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+}
+
 .sideMenu {
   border-radius: 0 15px 15px 0;
   width: 230px;

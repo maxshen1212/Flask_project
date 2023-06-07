@@ -16,8 +16,8 @@ function search_time() {
   var avalible_time = date_line_info(date);
   // 預設回傳值
   var avalible_time = {
-    "11:00": "愛在夏天",
-    "11:30": "摯友",
+    "11:00": { song: "愛在夏天", member: ["治翰", "維剛", "柏雄"] },
+    "11:30": { song: "摯友", member: ["max", "max", "max"] },
     "12:00": null,
     "12:30": null,
     "13:00": null,
@@ -33,7 +33,12 @@ function search_time() {
             <button class="btn btn-outline-danger my-1" disabled>
                 ${time_regular[i]}
             </button>
-            <p class="d-inline">歌曲：${avalible_time[time_regular[i]]}</p>
+            <p class="d-inline"><b>歌曲：</b>${
+              avalible_time[time_regular[i]].song
+            }</p> | 
+            <p class="d-inline"><b>團員：</b>${
+              avalible_time[time_regular[i]].member
+            }</p>
         </div>
         `;
     } else {
@@ -58,15 +63,20 @@ function search_time() {
             <button class="btn btn-outline-danger my-1" disabled>
                 ${time_regular[i]}
             </button>
-            <p class="d-inline">歌曲：${avalible_time[time_regular[i]]}</p>
+            <p class="d-inline"><b>歌曲：</b>${
+              avalible_time[time_regular[i]].song
+            }</p> | 
+            <p class="d-inline"><b>團員：</b>${
+              avalible_time[time_regular[i]].member
+            }</p>
         </div>
         `;
       } else {
         template += `
         <div class="col">
-            <a class="btn btn-outline-danger my-1" id="${time_regular[i]}" href="/line_form/${time_regular[i]}" >
-            ${time_regular[i]}
-            </a>
+        <a class="btn btn-outline-danger my-1" id="${time_regular[i]}" href="/line_form/${time_regular[i]}" >
+        ${time_regular[i]}
+        </a>
             <p class="d-inline">可預約!!!</p>
         </div>
         `;

@@ -51,7 +51,7 @@ def login():
 
 
 @app.route('/logout')
-def session_logout():
+def logout():
     session.pop('username', None) # None是為了避免找不到對應的key產生錯誤
     return make_response(redirect(url_for('login')))
 
