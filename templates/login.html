@@ -1,0 +1,32 @@
+{% extends 'side_bar.html' %} {% block title %}Home page{% endblock %} {% block
+style %}
+<link
+  rel="stylesheet"
+  href="{{ url_for('static', filename= 'css/login.css') }}"
+/>
+{% endblock %} {% block content %}
+
+<main
+  class="form-signin w-100 m-auto border border-2 rounded-4 bg-light shadow-sm my-5"
+>
+  <form action="/login" method="POST">
+    <img
+      class="mb-1 img-fluid mx-auto d-block"
+      src="{{ url_for('static', filename= 'image/log-in.png') }}"
+      alt="log-in image"
+      width="190"
+      height="170"
+    />
+    <div class="form-floating mb-3">
+      <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" name="mail">
+      <label for="floatingInput">電子郵件</label>
+    </div>
+    <div class="form-floating">
+      <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="password">
+      <label for="floatingPassword">密碼</label>
+    </div>
+    <button class="w-100 btn btn-lg btn-primary mt-3" type="submit" value="Login">登入</button>
+    <p class="mt-2 mb-3 text-body-secondary text-center">© 2023 by ShaninGuitar</p>
+  </form>
+</main>
+{% endblock %}

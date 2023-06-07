@@ -1,0 +1,74 @@
+{% extends 'side_bar.html' %} {% block content %}
+<div class="container">
+  <div class="row justify-content-center align-items-center h-100">
+    <div class="col-lg-6 col-12">
+      <div class="py-1 text-center">
+        <!-- <img
+                  class="d-block mx-auto mb-4"
+                  src="../static/image/火鍋.jpg"
+                  alt=""
+                  width="72"
+                  height="70"
+                /> -->
+        <h2>排隊練歌表單</h2>
+        <p class="lead">請在此處輸入練歌資料，並按下儲存進行送出</p>
+      </div>
+      <h4 class="mb-3">使用者資訊</h4>
+      <form action="/line_form/{{time}}" method="POST">
+        <div class="row g-2">
+          <!-- 歌名 -->
+          <div class="col-12">
+            <label for="song" class="form-label">歌曲名稱</label>
+            <input
+              type="text"
+              class="form-control"
+              id="song"
+              name="song"
+              placeholder="歌曲名稱"
+            />
+            <div class="invalid-feedback">請填寫姓名！！</div>
+          </div>
+          <!-- 時間 -->
+          <div class="col-12">
+            <label for="time" class="form-label">練歌時間</label>
+            <input
+              type="text"
+              class="form-control"
+              id="time"
+              name="time"
+              value="{{time}}"
+              disabled
+            />
+            <div class="invalid-feedback">請填寫時間！！</div>
+          </div>
+          <div class="col-12">
+            <label for="member_num" class="form-label">成員數量</label>
+            <input
+              type="number"
+              class="form-control"
+              id="member_num"
+              name="member_num"
+              placeholder="成員數量"
+              max="10"
+            />
+            <div class="invalid-feedback">請填寫成員數量！！</div>
+          </div>
+          <!-- 成員 -->
+          <!-- mail -->
+          <div id="member_list">
+            
+          </div>
+          <button
+            class="btn btn-primary btn-lg mt-5"
+            type="submit"
+            value="line_form"
+          >
+            儲存
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<script src="../static/js/line_form.js"></script>
+{% endblock %}

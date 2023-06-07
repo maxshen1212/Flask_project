@@ -1,0 +1,32 @@
+{% extends 'side_bar.html' %} {% block style %}
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css"
+/>
+<link rel="stylesheet" href="../static/css/index2.css" />
+{% endblock %} {% block content %}
+<div class="container">
+  <!-- 查詢時間 -->
+  <div class="row my-1 p-4 search-form mx-auto">
+    <h1 class="text-center">預約查詢</h1>
+    <hr />
+    <label class="col-3 col-form-label text-center fw-bold" for="datepicker"
+      >請選擇日期:</label
+    >
+    <div class="col-lg-6">
+      <input type="text" class="form-control" id="datepicker" />
+      <div id="datepicker"></div>
+      <input type="hidden" id="my_hidden_input" />
+    </div>
+  </div>
+  <div class="row row-cols-2 my-3" id="time_list"></div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+<script src="../static/js/index2.js"></script>
+<script>
+  $(document).ready(function () {
+    init_datetime();
+    search_time();
+  });
+</script>
+{% endblock %}
