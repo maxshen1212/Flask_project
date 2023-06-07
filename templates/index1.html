@@ -5,11 +5,10 @@
 />
 {% endblock %} {% block content%}
 <div class="container overflow-hidden">
-  <div
-    class="row justify-content-center align-items-center p-3"
-  >
+  <div class="row justify-content-center align-items-center p-3">
     <div class="col-9">
       <div class="row">
+        <!-- 練歌規則 -->
         <div class="col-lg-8">
           <div class="border boder-1 bg-white rounded p-4">
             <div><h1>弦音吉他社練歌</h1></div>
@@ -25,21 +24,18 @@
             </div>
           </div>
         </div>
+        <!-- 預約排隊 -->
         <div class="col-lg-4">
           <div class="border boder-1 bg-white rounded p-4">
             <h1>預約排隊</h1>
             <hr />
-            <!-- <select class="form-select" aria-label="Default select example">
-              <option selected>練歌人數</option>
-              <option value="1">1位</option>
-              <option value="2">2位</option>
-              <option value="3">3位</option>
-              <option value="3">4位</option>
-            </select> -->
             <div class="row my-3">
-              <div class="col">
+              <label class="col-3 col-form-label text-center" for="datepicker"
+                >日期:</label
+              >
+              <div class="col-9">
                 <input type="text" class="form-control" id="datepicker" />
-                <div id="datepicker" data-date="12/03/2012"></div>
+                <div id="datepicker"></div>
                 <input type="hidden" id="my_hidden_input" />
               </div>
             </div>
@@ -47,14 +43,13 @@
           </div>
         </div>
       </div>
-
+      <!-- 時間列表 -->
       <div class="row my-4" id="time_list_bg">
         <div class="col-12">
           <div class="border boder-1 bg-white rounded p-4">
             <h1>預約列表</h1>
-            <!-- 時間列表 -->
-            <div class="row row-cols-2 my-3" id="time_list">
-            </div>
+            <hr>
+            <div class="row row-cols-2 my-3" id="time_list"></div>
           </div>
         </div>
       </div>
@@ -66,6 +61,7 @@
 <script src="../static/js/index1.js"></script>
 <script>
   $(document).ready(function () {
+    $("#time_list_bg").hide();
     init_datetime();
     search_time();
   });
