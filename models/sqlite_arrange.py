@@ -9,7 +9,7 @@ def user_queue(db_name,member1,member2,member3,member4,date,time,email):
         # 人員只有一個時
         if not member2 and not member3 and not member4:
             cursor.execute(
-                "INSERT INTO user (member1,date,time,)email) VALUES(?,?,?,?)",(member1,date,time,email)
+                "INSERT INTO user (member1,date,time,email) VALUES(?,?,?,?)",(member1,date,time,email)
             )
         # 人員有二個時
         elif not member3 and not member4:

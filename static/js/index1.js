@@ -4,7 +4,7 @@ function init_datetime() {
     .datepicker({
       format: "yyyy/mm/dd",
       startDate: "0d",
-      endDate: "+7d",
+      endDate: "+2d",
     })
     .datepicker("update", new Date());
   //監聽時間選擇器
