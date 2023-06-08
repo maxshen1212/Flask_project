@@ -123,6 +123,15 @@ def sign():
     return response
 
 
+@app.route('/cancel_line', methods=['POST'])
+def cancel_line():
+    day = request.form.get('day')
+    time = request.form.get('time')
+    print(day)
+    print(time)
+    return make_response(redirect(url_for('index3')))
+    
+    
 @app.errorhandler(404)
 def page_not_found(error):
     return make_response(render_template('page_not_found.html', error=error),404)

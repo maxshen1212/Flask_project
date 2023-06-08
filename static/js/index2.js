@@ -30,24 +30,15 @@ function search_time() {
     if (avalible_time[time_regular[i]] != null) {
       template += `
         <div class="col">
-            <button class="btn btn-outline-danger my-1" disabled>
-                ${time_regular[i]}
-            </button>
+            <div class="d-inline rounded mx-1 display-3 my-1" disabled>
+              ${time_regular[i]}
+            </div>
             <p class="d-inline"><b>歌曲：</b>${
               avalible_time[time_regular[i]].song
             }</p> | 
             <p class="d-inline"><b>團員：</b>${
               avalible_time[time_regular[i]].member
             }</p>
-        </div>
-        `;
-    } else {
-      template += `
-        <div class="col">
-            <a class="btn btn-outline-danger my-1" id="${time_regular[i]}" href="/line_form/${time_regular[i]}" >
-            ${time_regular[i]}
-            </a>
-            <p class="d-inline">可預約!!!</p>
         </div>
         `;
     }
@@ -60,24 +51,15 @@ function search_time() {
       if (avalible_time[time_regular[i]] != null) {
         template += `
         <div class="col">
-            <button class="btn btn-outline-danger my-1" disabled>
-                ${time_regular[i]}
-            </button>
+            <div class="d-inline rounded mx-1 display-3 my-1" disabled>
+              ${time_regular[i]}
+            </div>
             <p class="d-inline"><b>歌曲：</b>${
               avalible_time[time_regular[i]].song
             }</p> | 
             <p class="d-inline"><b>團員：</b>${
               avalible_time[time_regular[i]].member
             }</p>
-        </div>
-        `;
-      } else {
-        template += `
-        <div class="col">
-        <a class="btn btn-outline-danger my-1" id="${time_regular[i]}" href="/line_form/${time_regular[i]}" >
-        ${time_regular[i]}
-        </a>
-            <p class="d-inline">可預約!!!</p>
         </div>
         `;
       }
