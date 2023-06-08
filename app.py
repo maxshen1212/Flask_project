@@ -41,6 +41,9 @@ def login():
             response = make_response(redirect(url_for('index')))
             ''' 設定 Session '''
             session['username'] = auth_result
+            root = search_root()
+            if root:
+                session['root'] = "true"
         else:  # 如果錯誤
             response = make_response(redirect(url_for('login')))
             
@@ -59,7 +62,7 @@ def logout():
 @app.route('/check_login', methods=['GET'])
 def check():
     username = session.get('username', None) # None是為了避免找不到對應的key產生錯誤
-    print(username)
+    # print(username)
     if username:
         return "True"
     else:
