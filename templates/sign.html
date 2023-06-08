@@ -1,0 +1,57 @@
+{% extends 'side_bar.html' %} {% block content %}
+<div class="container">
+  <main>
+    <div class="py-1 text-center">
+      <img
+        class="d-block mx-auto mb-4"
+        src="../static/image/4.jpg"
+        alt=""
+        width="250"
+      />
+      <h2>使用者註冊</h2>
+      <p class="lead">請在此處輸入你的資料，並按下註冊進行系統註冊。</p>
+    </div>
+    <div class="row g-5 justify-content-center">
+      <div class="col-lg-6 col-12">
+        <h4 class="mb-3">註冊資料</h4>
+        <form action="/sign" method="POST">
+          <div class="row g-2">
+            <!-- 姓名 -->
+            <div class="col-12">
+              <label for="name" class="form-label">姓名</label>
+              <input type="text" class="form-control" id="name" name="name" />
+              <div class="invalid-feedback">請填寫姓名！！</div>
+            </div>
+            <!-- mail -->
+            <div class="col-12">
+              <label for="email" class="form-label">Email</label>
+              <input type="email" class="form-control" id="email" name="mail" />
+              <div class="invalid-feedback">請填寫信箱！！</div>
+            </div>
+            <!-- 密碼 -->
+            <div class="col-12">
+              <label for="password" class="form-label">密碼</label>
+              <input
+                type="text"
+                class="form-control"
+                id="password"
+                name="password"
+              />
+              <div class="invalid-feedback">請填寫密碼！！</div>
+            </div>
+
+            <button
+              class="w-100 btn btn-primary btn-lg mt-5"
+              type="submit"
+              value="sign"
+            >
+              註冊
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </main>
+</div>
+<script></script>
+{% endblock %}

@@ -98,9 +98,34 @@ def line_form(timeValue):
     return response
 
 
+@app.route('/sign', methods=['GET', 'POST'])
+def sign():
+    if request.method == 'GET':  # 輸入網址會進到這裡
+        print("get_sign")
+        response = make_response(render_template("sign.html"))
+    elif request.method == 'POST':  # 表單送出後會到這裡
+        print("post_sign")
+        name = request.values.get('name')
+        mail = request.values.get('mail')
+        password = request.values.get('password')
+        sign_result = asd(name,mail,password)
+        # 更新是否成功，回傳驗證結果 update_result
+        sign_result = "success"
+        ''' 建立回應 '''
+        if sign_result == 'success':  # 如果都正確
+            response = make_response(redirect(url_for('login')))
+        else:  # 如果錯誤
+            response = make_response(redirect(url_for('login')))
+        print(sign_result)
+    else:
+        response = make_response(redirect(url_for('sign')))
+
+    return response
+
+
 @app.errorhandler(404)
 def page_not_found(error):
     return make_response(render_template('page_not_found.html', error=error),404)
 
 if __name__ == "__main__":  # 若直接執行本程式才啟動伺服器，若僅被呼叫則不啟動
-    app.run(debug=True, port=5251)
+    app.run(debug=True, port=5251,host="0.0.0.0")
