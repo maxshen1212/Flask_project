@@ -46,7 +46,6 @@ function search_time() {
   });
 }
 
-
 function get_line(select_date) {
   var today = new Date().toLocaleDateString();
   var day;
