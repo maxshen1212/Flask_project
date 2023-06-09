@@ -4,9 +4,10 @@ db_name = "shanin.db"
 '''建立資料庫及資料表，若資料庫已存在則不執行任何操作'''
 try:
     conn = sqlite3.connect(db_name)
-    conn.execute('''CREATE TABLE IF NOT EXISTS day1 (
+    conn.execute('''CREATE TABLE IF NOT EXISTS line (
                         iid INTEGER PRIMARY KEY AUTOINCREMENT,
-                        time TEXT NOT NULL UNIQUE,
+                        day TEXT NOT NULL,
+                        time TEXT NOT NULL,
                         song TEXT NOT NULL,
                         member1 TEXT NOT NULL,
                         mail1 TEXT NOT NULL,
@@ -102,19 +103,3 @@ finally:
 # else:
 #     print("查無資料")
     
-# try:
-#     conn = sqlite3.connect(db_name)
-#     cursor = conn.cursor()
-#     cursor.execute("SELECT * FROM students")
-#     results = cursor.fetchall()
-#     if not results:
-#         print("=> 沒有學生資料！")
-#     else:
-#         print("\n所有學生資料：")
-#         print("學號\t姓名\t手機\t\t成績")
-#         for result in results:
-#             print(f"{result[1]}\t{result[2]}\t{result[3]}\t{result[4]}")
-# except sqlite3.Error as error:
-#     print("=> 顯示所有記錄時發生錯誤：", error)
-# finally:
-#     conn.close()

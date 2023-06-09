@@ -15,12 +15,13 @@
       </div>
       <h4 class="mb-3">使用者資訊</h4>
       <!-- 表單 -->
-      <form action="/line_form/{{time}}" method="POST">
+      <form action="/line_form/{{day}}/{{time}}" method="POST">
         <div class="row g-2">
           <!-- 歌名 -->
           <div class="col-12">
             <label for="song" class="form-label">歌曲名稱</label>
             <input
+              required
               type="text"
               class="form-control"
               id="song"
@@ -33,12 +34,12 @@
           <div class="col-12">
             <label for="time" class="form-label">練歌時間</label>
             <input
+              required
               type="text"
               class="form-control"
               id="time"
               name="time"
               value="{{time}}"
-              disabled
             />
             <div class="invalid-feedback">請填寫時間！！</div>
           </div>
@@ -46,6 +47,7 @@
           <div class="col-12">
             <label for="member_num" class="form-label">成員數量</label>
             <input
+              required
               type="number"
               class="form-control"
               id="member_num"
@@ -74,5 +76,5 @@
     </div>
   </div>
 </div>
-<script src="../static/js/line_form.js"></script>
+<script src="{{ url_for('static', filename= 'js/line_form.js') }}"></script>
 {% endblock %}

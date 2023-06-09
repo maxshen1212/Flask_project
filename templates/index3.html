@@ -5,7 +5,7 @@
 />
 <link rel="stylesheet" href="../static/css/index2.css" />
 {% endblock %} {% block content %}
-<div class="container">
+<div class="container" id="root">
   <!-- 查詢時間 -->
   <div class="row my-1 p-4 search-form mx-auto">
     <h1 class="text-center">查詢練歌</h1>
@@ -20,14 +20,20 @@
     </div>
   </div>
   <!-- 查詢列表 -->
-  <div class="row row-cols-2 my-3 border border-1 border-dark bg-white rounded-4 shadow p-4" id="time_list"></div>
+  <div
+    class="row row-cols-2 my-3 border border-1 border-dark bg-white rounded-4 shadow p-4"
+    id="time_list"
+  ></div>
+</div>
+<div class="container" id="notroot">
+  <h1>你不是管理員喔</h1>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
 <script src="../static/js/index3.js"></script>
 <script>
   $(document).ready(function () {
     init_datetime();
-    search_time();
+    check_root();
   });
 </script>
 {% endblock %}

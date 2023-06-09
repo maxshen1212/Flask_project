@@ -8,6 +8,7 @@ $("#member_num").on("change", function () {
         <div class="col-12">
             <label for="member${i+1}" class="form-label">成員${i+1}</label>
             <input
+            required
             type="text"
             class="form-control"
             id="member${i+1}"
@@ -19,6 +20,7 @@ $("#member_num").on("change", function () {
         <div class="col-12">
             <label for="mail${i+1}" class="form-label">成員${i+1}的mail</label>
             <input
+            required
             type="text"
             class="form-control"
             id="mail${i+1}"

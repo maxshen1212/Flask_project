@@ -24,93 +24,108 @@ function init_datetime() {
 }
 
 function search_time() {
-  var date = $("#datepicker").datepicker("getFormattedDate");
-  var avalible_time = date_line_info(date);
-  // 預設回傳值
-  var avalible_time = {
-    "11:00": { song: "愛在夏天", member: ["治翰", "維剛", "柏雄"] },
-    "11:30": { song: "摯友", member: ["max", "max", "max"] },
-    "12:00": null,
-    "12:30": null,
-    "13:00": null,
-  };
-  const time_regular = ["11:00", "11:30", "12:00", "12:30", "13:00"];
-  var time_list = document.getElementById("time_list");
-  console.log(avalible_time["11:00"]);
-  var template = ``;
-  for (var i = 0; i < time_regular.length; i++) {
-    if (avalible_time[time_regular[i]] != null) {
-      template += `
-        <div class="col">
-            <div class="d-inline rounded mx-1 display-3 my-1" disabled>
-                ${time_regular[i]}
-            </div>
-            <p class="d-inline"><b>歌曲：</b>${
-              avalible_time[time_regular[i]].song
-            }</p> | 
-            <p class="d-inline"><b>團員：</b>${
-              avalible_time[time_regular[i]].member
-            }</p>
-            <button type="button" class="btn btn-sm btn-outline-danger ms-3 cancel_btn" id="${
-              time_regular[i]
-            }">刪除</button>
-            </div>
-        </div>
-        `;
-    }
-  }
-  time_list.innerHTML = template;
+  var select_date = $("#datepicker").datepicker("getFormattedDate");
+  get_line(select_date);
   $("#datepicker").on("change", function () {
-    console.log("asd");
-    var template = ``;
-    for (var i = 0; i < time_regular.length; i++) {
-      if (avalible_time[time_regular[i]] != null) {
-        template += `
-        <div class="col">
-            <div class="d-inline rounded mx-1 display-3 my-1" disabled>
-                ${time_regular[i]}
-            </div>
-            <p class="d-inline"><b>歌曲：</b>${
-              avalible_time[time_regular[i]].song
-            }</p> | 
-            <p class="d-inline"><b>團員：</b>${
-              avalible_time[time_regular[i]].member
-            }</p>
-            <button type="button" class="btn btn-sm btn-outline-danger ms-3" onclick="delete_line(${date},${
-          time_regular[i]
-        })">刪除</button>
-        </div>
-        `;
-      }
-    }
-    time_list.innerHTML = template;
-  });
-  $(".cancel_btn").on("click", function () {
-    time = $(".cancel_btn").attr("id");
-    delete_line(date, time);
-    console.log(time);
-    console.log(date);
+    select_date = $("#datepicker").datepicker("getFormattedDate");
+    get_line(select_date);
   });
 }
 
-function date_line_info(date) {
-  // $.ajax({
-  //   url: "/cancel_line", //存取Json的網址
-  //   type: "POST",
-  //   data: date,
-  //   dataType: "json",
-  //   success: function (data) {
-  //     return data;
-  //   },
-  // });
-}
-
-function delete_line(date, time) {
+function get_line(select_date) {
   var today = new Date().toLocaleDateString();
   var day;
-  if (DateDiff(today, date) == 0) {
+  if (DateDiff(today, select_date) == 0) {
     day = "day0";
-  } else if (DateDiff(today, date) == 1) {
+  } else if (DateDiff(today, select_date) == 1) {
+    day = "day1";
+  }
+  var line = {
+    "19:30": null,
+    "20:00": null,
+    "20:30": null,
+    "21:00": null,
+    "21:30": null,
+    "22:00": null,
+    "22:30": null,
+    "23:00": null,
+    "23:30": null,
+    "24:00": null,
+  };
+
+  const time_regular = [
+    "19:30",
+    "20:00",
+    "20:30",
+    "21:00",
+    "21:30",
+    "22:00",
+    "22:30",
+    "23:00",
+    "23:30",
+    "24:00",
+  ];
+
+  $.ajax({
+    url: "/get_line/" + day, //存取Json的網址
+    type: "GET",
+    processData: false,
+    dataType: "json",
+    success: function (response) {
+      for (var i = 0; i < response.data.length; i++) {
+        console.log(response.data[i]);
+        line[response.data[i][2]] = {
+          song: response.data[i][3],
+          member: [
+            response.data[i][4],
+            response.data[i][6],
+            response.data[i][8],
+            response.data[i][12],
+            response.data[i][14],
+          ],
+        };
+      }
+
+      var time_list = document.getElementById("time_list");
+      var template = ``;
+
+      for (var i = 0; i < time_regular.length; i++) {
+        var member = [];
+        if (line[time_regular[i]] != null) {
+          for (var j = 0; j < 5; j++) {
+            if (line[time_regular[i]].member[j] != null) {
+              member.push(line[time_regular[i]].member[j]);
+            }
+          }
+          template += `
+          <div class="col">
+              <div class="d-inline rounded mx-1 display-3 my-1" disabled>
+                ${time_regular[i]}
+              </div>
+              <p class="d-inline"><b>歌曲：</b>${
+                line[time_regular[i]].song
+              }</p> | 
+              <p class="d-inline"><b>團員：</b>${member}</p>
+              <button type="button" class="btn btn-sm btn-outline-danger ms-3 cancel_btn" id="${
+                time_regular[i]
+              }" onclick="cancel_btn(this)">刪除</button>
+          </div>
+        `;
+        }
+        // console.log(member)
+      }
+      time_list.innerHTML = template;
+    },
+  });
+  // console.log(line);
+}
+
+function delete_line(select_date, time) {
+  var today = new Date().toLocaleDateString();
+  var day;
+  if (DateDiff(today, select_date) == 0) {
+    day = "day0";
+  } else if (DateDiff(today, select_date) == 1) {
     day = "day1";
   }
   console.log(day);
@@ -125,8 +140,34 @@ function delete_line(date, time) {
     contentType: false,
     processData: false,
     dataType: "json",
-    success: function (aa) {
-      console.log(aa);
+    success: function (response) {
+      console.log("刪除成功拉");
+      location.reload();
     },
   });
+}
+
+function check_root() {
+  $.ajax({
+    url: "/check_root", //存取Json的網址
+    type: "GET",
+    success: function (data) {
+      if (data === "True") {
+        console.log(data);
+        search_time();
+        $("#notroot").hide();
+      } else {
+        $("#notroot").show();
+        $("#root").hide();
+      }
+    },
+  });
+}
+
+function cancel_btn(e) {
+  var select_date = $("#datepicker").datepicker("getFormattedDate");
+  time = e.id;
+  delete_line(select_date, time);
+  console.log(select_date);
+  console.log(time);
 }
