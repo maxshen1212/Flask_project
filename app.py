@@ -105,7 +105,7 @@ def line_form(day,timeValue):
         update_result = insert_song(day,time,song,member[0],email[0],member[1],email[1],member[2],email[2],member[3],email[3],member[4],email[4])
         ''' 建立回應 '''
         if update_result == 'success':  # 如果都正確
-            response = make_response(redirect(url_for('index1')))
+            response = make_response(redirect(url_for('index2')))
         else:  # 如果錯誤
             response = make_response(redirect(url_for('index1')))
         print(update_result)
